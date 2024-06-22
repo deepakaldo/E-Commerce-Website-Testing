@@ -22,17 +22,17 @@ def browser():
 def test_registration(browser):
     browser.find_element(By.XPATH,"//a[normalize-space()='Register']").click()
     browser.find_element(By.ID, "gender-male").click()
-    browser.find_element(By.ID, "FirstName").send_keys("John")
-    browser.find_element(By.ID, "LastName").send_keys("Doe")
+    browser.find_element(By.ID, "FirstName").send_keys("sathiya")
+    browser.find_element(By.ID, "LastName").send_keys("murthi")
     date=Select(browser.find_element(By.XPATH,"//select[@name='DateOfBirthDay']"))
     date.select_by_value("27")
     month=Select(browser.find_element(By.XPATH,"//select[@name='DateOfBirthMonth']"))
     month.select_by_visible_text("may")
     year=Select(browser.find_element(By.XPATH,"//select[@name='DateOfBirthYear']"))
     year.select_by_value("2000")
-    browser.find_element(By.ID, "Email").send_keys("johndoe@example.com")
-    browser.find_element(By.ID, "Password").send_keys("Test@1234")
-    browser.find_element(By.ID, "ConfirmPassword").send_keys("Test@1234")
+    browser.find_element(By.ID, "Email").send_keys("sathiyamurthi9989@example.com")
+    browser.find_element(By.ID, "Password").send_keys("Test@123456")
+    browser.find_element(By.ID, "ConfirmPassword").send_keys("Test@123456")
 
     # Submit the registration form
     browser.find_element(By.ID, "register-button").click()
@@ -66,3 +66,9 @@ def test_password(browser):
     browser.find_element(By.ID, "register-button").click()
     error_mesg=browser.find_element(By.XPATH,"//span[@class='field-validation-error']")
     assert "<p>Password must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>" in error_mesg.text
+
+# def main():
+#     pytest.main(["-v", "--alluredir=allure-results"])
+#
+# if __name__ == "__main__":
+#     main()
